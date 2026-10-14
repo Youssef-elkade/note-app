@@ -112,12 +112,12 @@
     renderDetail();
   }
   function addNote(event) {
-    event.preventDefault();
+    event.preventDefault();   
     const title = titleInput.value.trim();
     const author = authorInput.value.trim();
     const text = textInput.value.trim();
-    if (!title || !author || !text) {
-      $("#form-error").textContent = "Please complete all fields.";
+    if (!text) {
+      $("#form-error").textContent = "Please enter your note.";
       return;
     }
     const note = { id: (crypto.randomUUID ? crypto.randomUUID() : `note-${Date.now()}-${Math.random()}`),
