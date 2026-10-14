@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Almdrasa-Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app" id="app">
+    <aside class="sidebar" id="sidebar">
+      <a class="wordmark" href="#" aria-label="Almdrasa Notes home">Almdrasa-Notes</a>
+      <label class="search-field">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
+        <input id="search-notes" type="search" placeholder="Search" aria-label="Search notes">
+        <button class="clear-search" id="clear-search" type="button" aria-label="Clear search">×</button>
+      </label>
+      <nav class="side-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="notes" type="button">Notes</button>
+        <button class="nav-item" data-view="add" type="button">Add Notes</button>
+      </nav>
+    </aside>
+
+    <main class="main-panel">
+      <header class="mobile-header">
+        <button id="menu-toggle" class="plain-icon" type="button" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <a class="wordmark" href="#">Almdrasa-Notes</a>
+        <button id="mobile-search-toggle" class="plain-icon" type="button" aria-label="Search notes">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
+        </button>
+      </header>
+
+      <section class="notes-view" id="notes-view">
+        <div class="list-pane">
+          <section class="note-group" data-testid="pinned-notes" aria-labelledby="pinned-heading">
+            <h2 class="group-heading" id="pinned-heading">PINNED</h2>
+            <div id="pinned-list" class="note-list"></div>
+            <p class="empty-message" id="pinned-empty">No pinned notes yet.</p>
+          </section>
+          <section class="note-group other-group" data-testid="other-notes" aria-labelledby="other-heading">
+            <h2 class="group-heading" id="other-heading">NOTES</h2>
+            <div id="other-list" class="note-list"></div>
+            <p class="empty-message" id="other-empty">No notes yet. Add your first note.</p>
+          </section>
+        </div>
+        <section class="detail-pane" id="detail-pane" aria-live="polite">
+          <div class="detail-empty">
+            <div class="empty-art" aria-hidden="true">
+              <svg viewBox="0 0 96 96"><path d="M25 14h34l15 15v52H25z"/><path d="M59 14v16h15M36 43h27M36 53h27M36 63h19"/></svg>
+            </div>
+            <p>Select a note to read it</p>
+          </div>
+        </section>
+        <button class="fab" id="fab-add" type="button" aria-label="Add note"><span>+</span></button>
+      </section>
+
+      <section class="add-view" id="add-view" hidden>
+        <div class="add-form-wrap">
+          <h1>Add Note</h1>
+          <form id="note-form">
+            <label for="note-title">Title*</label>
+            <input id="note-title" name="title" type="text" required maxlength="120" data-testid="note-title">
+            <label for="note-author">Author*</label>
+            <input id="note-author" name="author" type="text" required maxlength="80">
+            <label for="note-text">Your Note*</label>
+            <textarea id="note-text" name="text" required rows="5" data-testid="note-text"></textarea>
+            <div class="form-actions">
+              <button class="coral-button" type="submit" data-testid="add-note">Add Note</button>
+              <button class="coral-button" type="submit" id="add-pinned-button">Add pinned note</button>
+            </div>
+            <p class="form-error" id="form-error" role="alert"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <template id="note-template">
+    <article class="note-item" data-testid="note">
+      <button class="note-select" type="button">
+        <span class="note-item-title"></span>
+        <span class="note-item-preview"></span>
+        <span class="note-item-date"></span>
+      </button>
+      <div class="note-item-actions">
+        <button class="text-action pin-action" type="button" data-testid="pin-note">Pin</button>
+        <button class="text-action delete-action" type="button" data-testid="delete-note">Delete</button>
+      </div>
+    </article>
+  </template>
+</body>
+</html>
