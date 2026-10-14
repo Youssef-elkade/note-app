@@ -112,7 +112,7 @@
     renderDetail();
   }
   function addNote(event) {
-    event.preventDefault();   
+    event.preventDefault();
     const title = titleInput.value.trim();
     const author = authorInput.value.trim();
     const text = textInput.value.trim();
