@@ -38,12 +38,12 @@
 
       <section class="notes-view" id="notes-view">
         <div class="list-pane">
-          <section class="note-group" data-testid="pinned-notes" aria-labelledby="pinned-heading">
+          <section data-testid="pinned-notes" class="note-group" aria-labelledby="pinned-heading">
             <h2 class="group-heading" id="pinned-heading">PINNED</h2>
             <div id="pinned-list" class="note-list"></div>
             <p class="empty-message" id="pinned-empty">No pinned notes yet.</p>
           </section>
-          <section class="note-group other-group" data-testid="other-notes" aria-labelledby="other-heading">
+          <section data-testid="other-notes" class="note-group other-group" aria-labelledby="other-heading">
             <h2 class="group-heading" id="other-heading">NOTES</h2>
             <div id="other-list" class="note-list"></div>
             <p class="empty-message" id="other-empty">No notes yet. Add your first note.</p>
@@ -65,13 +65,13 @@
           <h1>Add Note</h1>
           <form id="note-form">
             <label for="note-title">Title*</label>
-            <input id="note-title" name="title" type="text" maxlength="120" data-testid="note-title">
+            <input data-testid="note-title" id="note-title" name="title" type="text" maxlength="120">
             <label for="note-author">Author*</label>
             <input id="note-author" name="author" type="text" maxlength="80">
             <label for="note-text">Your Note*</label>
-            <textarea id="note-text" name="text" required rows="5" data-testid="note-text"></textarea>
+            <textarea data-testid="note-text" id="note-text" name="text" required rows="5"></textarea>
             <div class="form-actions">
-              <button class="coral-button" type="submit" data-testid="add-note">Add Note</button>
+              <button data-testid="add-note" class="coral-button" type="submit">Add Note</button>
               <button class="coral-button" type="submit" id="add-pinned-button">Add pinned note</button>
             </div>
             <p class="form-error" id="form-error" role="alert"></p>
@@ -83,15 +83,15 @@
 
   <div class="mobile-overlay" id="mobile-overlay"></div>
   <template id="note-template">
-    <article class="note-item" data-testid="note">
+    <article data-testid="note" class="note-item">
       <button class="note-select" type="button">
         <span class="note-item-title"></span>
         <span class="note-item-preview"></span>
         <span class="note-item-date"></span>
       </button>
       <div class="note-item-actions">
-        <button class="text-action pin-action" type="button" data-testid="pin-note">Pin</button>
-        <button class="text-action delete-action" type="button" data-testid="delete-note">Delete</button>
+        <button data-testid="pin-note" class="text-action pin-action" type="button">Pin</button>
+        <button data-testid="delete-note" class="text-action delete-action" type="button">Delete</button>
       </div>
     </article>
   </template>
